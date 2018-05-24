@@ -6,10 +6,22 @@
 <h1>White noise. Stay focus.</h1>
 <a href="/post/new"><strong>contribute</strong></a>
 
+<%if session[:logined]%>
+<span>환영합니다. <%=session[:user]['name']%>님 <span>  <!--해쉬로 들어올때는 데이터형 바뀜.-->
+	<button>log out</button>
+<% else %>
+<a href="/user/new">
+<button>회원가입</button>
+</a>
+<a href="/user/login_form">
+<button>로그인</button>
+</a>
+<% end %>
+
 <h2>Sound List</h2>
 
 <ul>
-	
+
 	<%@posts.each_with_index do |item, index|%>
 	<li>#<%=(index+1)%>.  <%=item.title%></li>
 	<a href="/post/modify?id=<%=item.id%>">수정</a>
@@ -18,12 +30,12 @@
 	<li>author: <%=item.author%></li>
 	<li>description: <%=item.contents%></li>
 	<hr>
-	
+
 	<ol>
 	<% item.comments.each do |comment|%>
 		<li><%=comment.contents%></li>
 	<% end %>
 	</ol>
-	
+
 	<% end %>
 </ul>

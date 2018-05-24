@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'user/login_form'
+
+  post 'user/login'
+
+  get 'user/logout'
+
+  get 'user/new'
+
+  post 'user/create'
+
   get 'comment/new'
 
   get 'comment/create'
@@ -28,9 +38,9 @@ Rails.application.routes.draw do
   get 'post/modify'
 
   get 'post/delete'
-	
+
   get 'post/list'
-	
+
   root 'post#list'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
