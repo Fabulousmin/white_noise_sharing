@@ -1,43 +1,55 @@
 <style>
-	ul{list-style:none}
-	a{text-decoration:none;}
+	ul {
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+	}
 </style>
 
 <h1>White noise. Stay focus.</h1>
-<a href="/post/new"><strong>contribute</strong></a>
+<a href="/post/new">
+	<strong>contribute</strong>
+</a>
 
 <%if session[:logined]%>
-<span>환영합니다. <%=session[:user]['name']%>님 <span>  <!--해쉬로 들어올때는 데이터형 바뀜.-->
-<a href="/user/logout">
-	<button>log out</button>
-</a>
-<% else %>
-<a href="/user/new">
-<button>회원가입</button>
-</a>
-<a href="/user/login_form">
-<button>로그인</button>
-</a>
-<% end %>
+	<span>환영합니다.
+		<%=session[:user]['name']%>님
+		<span>
+			<!--해쉬로 들어올때는 데이터형 바뀜.-->
+			<a href="/user/logout">
+				<button>log out</button>
+			</a>
+		<% else %>
+			<a href="/user/new">
+				<button>회원가입</button>
+			</a>
+			<a href="/user/login_form">
+				<button>로그인</button>
+			</a>
+		<% end %>
 
-<h2>Sound List</h2>
+		<h2>Sound List</h2>
 
-<ul>
+		<ul>
 
-	<%@posts.each_with_index do |item, index|%>
-	<li>#<%=(index+1)%>.  <%=item.title%></li>
-	<a href="/post/modify?id=<%=item.id%>">수정</a>
-	<a href="/post/delete?id=<%=item.id%>">삭제</a>
-	<a href="/comment/new?id=<%=item.id%>">댓글달기</a>
-	<li>author: <%=item.author%></li>
-	<li>description: <%=item.contents%></li>
-	<hr>
+			<%@posts.each_with_index do |item, index|%>
+				<li>#<%=(index+1)%>.
+					<%=item.title%></li>
+				<a href="/post/modify?id=<%=item.id%>">수정</a>
+				<a href="/post/delete?id=<%=item.id%>">삭제</a>
+				<a href="/comment/new?id=<%=item.id%>">댓글달기</a>
+				<li>author:
+					<%=item.author%></li>
+				<li>description:
+					<%=item.contents%></li>
+				<hr>
 
-	<ol>
-	<% item.comments.each do |comment|%>
-		<li><%=comment.contents%></li>
-	<% end %>
-	</ol>
+				<ol>
+					<% item.comments.each do |comment|%>
+						<li><%=comment.contents%></li>
+					<% end %>
+				</ol>
 
-	<% end %>
-</ul>
+			<% end %>
+	</ul>

@@ -1,36 +1,37 @@
 <style>
-	#contents{
-		float:left;
+	#contents {
+		float: left;
 		position:
 	}
-	#submit{
-		float:left;
+	#submit {
+		float: left;
 	}
-	form{
-		outline:solid;
-		float:left
+	form {
+		outline: solid;
+		float: left;
 	}
 </style>
 
-
 <h1>Modify Post</h1>
-<form action = "/post/update">
+<form action="/post/update">
 	<p>
 		<input type="hidden" name="id" value="<%=@post.id%>">
 	</p>
 	<p>
-		<label for="title" >Sound name: </label> 	
-		<input type="text" name="title" value="<%=@post.title%>"> 
+		<label for="title">Sound name:
+		</label>
+		<input type="text" name="title" value="<%=@post.title%>">
 	</p>
-	
+
 	<p>
-		<label for="author">Author: </label>
+		<label for="author">Author:
+		</label>
 		<input type="text" name="author" value="<%=@post.author%>">
 	</p>
-	
+
 	<p>
 		<label id="contents" for="contents">Description</label>
-		<textarea id ="contents" name="contents" cols="30" rows="10"><%=@post.contents%></textarea>
+		<textarea id="contents" name="contents" cols="30" rows="10"><%=@post.contents%></textarea>
 	</p>
-	<button id="submit" type="submit" >수정</button>
+	<button id="submit" type="submit">수정</button>
 </form>

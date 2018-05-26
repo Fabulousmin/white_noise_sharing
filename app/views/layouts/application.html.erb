@@ -4,22 +4,24 @@
     <title>WhiteNoise</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style>
-      .alert-error{
-        color:red;
+      .alert-error {
+        color: red;
       }
       .alert-warning {
-        color:orange;
+        color: orange;
       }
     </style>
   </head>
 
-
   <body>
-    <% flash.each do |key, value| %> <!-- 한번만 띄움 -->
-      <div class="alert alert-<%=key%>"> <%=value%> </div>
+    <% flash.each do |key, value| %>
+      <!-- 한번만 띄움 -->
+      <div class="alert alert-<%=key%>">
+        <%=value%>
+      </div>
     <% end %>
 
     <%= yield %>
