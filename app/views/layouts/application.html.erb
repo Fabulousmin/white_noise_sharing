@@ -6,9 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .alert-error{
+        color:red;
+      }
+      .alert-warning {
+        color:orange;
+      }
+    </style>
   </head>
 
+
   <body>
+    <% flash.each do |key, value| %> <!-- 한번만 띄움 -->
+      <div class="alert alert-<%=key%>"> <%=value%> </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

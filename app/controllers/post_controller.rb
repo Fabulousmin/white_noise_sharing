@@ -1,4 +1,8 @@
 class PostController < ApplicationController
+
+  skip_before_filter :require_login, :only => [:list]
+
+
   def create
 	  _title = params[:title]
 	  _author = params[:author]
@@ -12,10 +16,7 @@ class PostController < ApplicationController
   end
 
   def new
-    if not session[:logined]
-      ##not logined
-      redirect_to controller:'user', action:'login_form'
-    end
+     require_login
   end
 
   def update
@@ -51,6 +52,6 @@ class PostController < ApplicationController
   end
 
   def list
-	  @posts = Post.joins(:comments).all
+	  @posts = Post.all
   end
 end

@@ -8,7 +8,9 @@
 
 <%if session[:logined]%>
 <span>환영합니다. <%=session[:user]['name']%>님 <span>  <!--해쉬로 들어올때는 데이터형 바뀜.-->
+<a href="/user/logout">
 	<button>log out</button>
+</a>
 <% else %>
 <a href="/user/new">
 <button>회원가입</button>

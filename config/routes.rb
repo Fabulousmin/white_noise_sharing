@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'user/create'
 
+  get 'user/verify' #verify 로 들어오면 인증되게.
+
   get 'comment/new'
 
   get 'comment/create'
