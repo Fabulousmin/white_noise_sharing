@@ -11,6 +11,14 @@ Rails.application.routes.draw do
 
   get 'user/verify' #verify 로 들어오면 인증되게.
 
+  get 'user/forgot_change'
+
+  post 'user/forgot_confirm'
+
+  post 'user/forgot'
+
+  get 'user/forgot_form'
+
   get 'comment/new'
 
   get 'comment/create'

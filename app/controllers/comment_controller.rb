@@ -1,4 +1,6 @@
 class CommentController < ApplicationController
+
+  ##add_new_comment_start
   def new
 	  _id = params[:id]     #수정해야함 @ post = Post.find(_id)
 	  @post = Post.find(_id)
@@ -8,6 +10,7 @@ class CommentController < ApplicationController
       redirect_to controller:'user', action:'login_form'
     end
   end
+
 
   def create
 
@@ -22,6 +25,8 @@ class CommentController < ApplicationController
 	  redirect_to controller:'post', action:'list'
 
   end
+  ##add_new_comment_end
+
 
   def delete
   end

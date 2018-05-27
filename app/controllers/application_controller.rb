@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
 
+
   before_filter :require_login
 
   protected
 
+##Check_login_session
+
   def require_login
-    @logined_user = logined_in  #logined_in메소드 호출
+    @logined_user  = logined_in  #logined_in메소드 호출
     if not @logined_user
       redirect_to controller:'user', action:'login_form'
     end
@@ -19,4 +22,8 @@ class ApplicationController < ActionController::Base
     end
     return false
   end
+
+
+
+
 end
