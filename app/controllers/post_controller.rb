@@ -1,6 +1,6 @@
 class PostController < ApplicationController
 
-  skip_before_filter :require_login, :only => [:list] #시작화면은 login session 체크하지 않는다.
+  #skip_before_filter :require_login, :only => [:list] #시작화면은 login session 체크하지 않는다.
 
 
   def create

@@ -12,22 +12,12 @@
 	<strong>contribute</strong>
 </a>
 
-<%if session[:logined]%>
-	<span>환영합니다.
-		<%=session[:user]['name']%>님
-		<span>
-			<!--해쉬로 들어올때는 데이터형 바뀜.-->
-			<a href="/user/logout">
-				<button>log out</button>
-			</a>
-		<% else %>
-			<a href="/user/new">
-				<button>회원가입</button>
-			</a>
-			<a href="/user/login_form">
-				<button>로그인</button>
-			</a>
-		<% end %>
+<% if user_signed_in? %>
+		<p>계정 : <%=current_user.email%></p>
+		<p><%=link_to "로그아웃" , destroy_user_session_path, method: :delete, data: {confirm: "로그아웃 하시겠습니까?"}%></p>
+<% else %>
+		<p><%=link_to "로그인", new_user_session_path %></p>
+<% end %>
 
 		<h2>Sound List</h2>
 

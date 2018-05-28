@@ -1,23 +1,26 @@
 Rails.application.routes.draw do
-  get 'user/login_form'
+  devise_for :users #자동으로 추가됨.
 
-  post 'user/login'
-
-  get 'user/logout'
-
-  get 'user/new'
-
-  post 'user/create'
-
-  get 'user/verify' #verify 로 들어오면 인증되게.
-
-  get 'user/forgot_change'
-
-  post 'user/forgot_confirm'
-
-  post 'user/forgot'
-
-  get 'user/forgot_form'
+  #user 관련 route
+  # get 'user/login_form'
+  #
+  # post 'user/login'
+  #
+  # get 'user/logout'
+  #
+  # get 'user/new'
+  #
+  # post 'user/create'
+  #
+  # get 'user/verify' #verify 로 들어오면 인증되게.
+  #
+  # get 'user/forgot_change'
+  #
+  # post 'user/forgot_confirm'
+  #
+  # post 'user/forgot'
+  #
+  # get 'user/forgot_form'
 
   get 'comment/new'
 

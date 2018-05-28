@@ -39,6 +39,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    authority (3.3.0)
+      activesupport (>= 3.0.0)
+    bcrypt (3.1.12)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
@@ -51,6 +54,12 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    devise (4.4.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -94,6 +103,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    orm_adapter (0.5.0)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (0.6.3)
@@ -125,10 +135,14 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rolify (5.2.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -166,6 +180,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -179,14 +195,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authority
   byebug
   coffee-rails (~> 4.2)
+  devise
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   mailgun_rails
   puma (~> 3.0)
   rails (~> 5.0.1)
+  rolify
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

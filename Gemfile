@@ -34,7 +34,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# mailgun_rails
 gem 'mailgun_rails'
+# 회원모델구현 위한 gem들
+gem 'devise'
+gem 'rolify'
+gem 'authority'
+#end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
