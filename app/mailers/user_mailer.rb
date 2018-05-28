@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
   def forgot(user, verification)
     @user = user
     @verification = verification
-
+    @host = ActionMailer::Base.default_url_options[:host]
 
     mail to:@user.email, subject: "[사이트명] 비밀번호 찾기 이메일 입니다."
 

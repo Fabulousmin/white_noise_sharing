@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   ##로그인 세션 체크 제외할 action 명시
-  skip_before_filter :require_login, :only => [:login_form, :login, :new, :create, :verify]
+  skip_before_filter :require_login, :only => [:login_form, :login, :new, :create, :verify, :forgot_form, :forgot_change, :forgot, :forgot_change]
 
 
 ##login_start
@@ -127,11 +127,16 @@ class UserController < ApplicationController
       flash[:error] ="존재하지 않는 계정입니다."
       redirect_to :back
       return
+    elsif user.is_verified == false
+      flash[:error] ="이메일 인증을 완료해주세요."
+      redirect_to :back
+      return
     end
 
-    verification = Verification.new
+    verification             = Verification.new
     verification.is_verified = true
     verification.is_active   = true
+    verification.user        = user
     verification.code        = SecureRandom.hex(16)
     verification.save
 
